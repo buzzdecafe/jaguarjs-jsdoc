@@ -74,12 +74,8 @@ function addSignatureReturns(f) {
 }
 
 function addTypeSignature(f) {
-    if (!f.params) return;
-    var paramTypes = f.params.map(function (p) {
-        return p.type ? p.type.names.join('|') : '';
-    })
-    var returnTypes = helper.getSignatureReturns(f).join('|');
-    f.typeSignature = f.name + ' :: ' + paramTypes.concat(returnTypes).join(' -> ');
+    if (!f.sig) return;
+    f.typeSignature = f.name + ' :: ' + f.sig;
 }
 
 function addSignatureTypes(f) {

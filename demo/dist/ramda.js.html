@@ -80,6 +80,8 @@
             
                 <li data-name="R.ap"><a href="R.html#ap">ap</a></li>
             
+                <li data-name="R.append"><a href="R.html#append">append</a></li>
+            
                 <li data-name="R.arity"><a href="R.html#arity">arity</a></li>
             
                 <li data-name="R.binary"><a href="R.html#binary">binary</a></li>
@@ -134,7 +136,7 @@
             
                 <li data-name="R.filter"><a href="R.html#filter">filter</a></li>
             
-                <li data-name="R.filterIdx"><a href="R.html#filterIdx">filterIdx</a></li>
+                <li data-name="R.filter.idx"><a href="R.html#filter.idx">filter.idx</a></li>
             
                 <li data-name="R.find"><a href="R.html#find">find</a></li>
             
@@ -154,6 +156,8 @@
             
                 <li data-name="R.forEach"><a href="R.html#forEach">forEach</a></li>
             
+                <li data-name="R.forEach.idx"><a href="R.html#forEach.idx">forEach.idx</a></li>
+            
                 <li data-name="R.fork"><a href="R.html#fork">fork</a></li>
             
                 <li data-name="R.fromPairs"><a href="R.html#fromPairs">fromPairs</a></li>
@@ -172,7 +176,11 @@
             
                 <li data-name="R.gte"><a href="R.html#gte">gte</a></li>
             
+                <li data-name="R.head"><a href="R.html#head">head</a></li>
+            
                 <li data-name="R.I"><a href="R.html#I">I</a></li>
+            
+                <li data-name="R.identity"><a href="R.html#identity">identity</a></li>
             
                 <li data-name="R.indexOf"><a href="R.html#indexOf">indexOf</a></li>
             
@@ -214,7 +222,11 @@
             
                 <li data-name="R.map"><a href="R.html#map">map</a></li>
             
+                <li data-name="R.map.idx"><a href="R.html#map.idx">map.idx</a></li>
+            
                 <li data-name="R.mapObj"><a href="R.html#mapObj">mapObj</a></li>
+            
+                <li data-name="R.mapObj.idx"><a href="R.html#mapObj.idx">mapObj.idx</a></li>
             
                 <li data-name="R.match"><a href="R.html#match">match</a></li>
             
@@ -266,9 +278,13 @@
             
                 <li data-name="R.pluck"><a href="R.html#pluck">pluck</a></li>
             
+                <li data-name="R.prepend"><a href="R.html#prepend">prepend</a></li>
+            
                 <li data-name="R.product"><a href="R.html#product">product</a></li>
             
                 <li data-name="R.project"><a href="R.html#project">project</a></li>
+            
+                <li data-name="R.prop"><a href="R.html#prop">prop</a></li>
             
                 <li data-name="R.propEq"><a href="R.html#propEq">propEq</a></li>
             
@@ -280,7 +296,17 @@
             
                 <li data-name="R.range"><a href="R.html#range">range</a></li>
             
+                <li data-name="R.reduce"><a href="R.html#reduce">reduce</a></li>
+            
+                <li data-name="R.reduce.idx"><a href="R.html#reduce.idx">reduce.idx</a></li>
+            
+                <li data-name="R.reduceRight"><a href="R.html#reduceRight">reduceRight</a></li>
+            
+                <li data-name="R.reduceRight.idx"><a href="R.html#reduceRight.idx">reduceRight.idx</a></li>
+            
                 <li data-name="R.reject"><a href="R.html#reject">reject</a></li>
+            
+                <li data-name="R.reject.idx"><a href="R.html#reject.idx">reject.idx</a></li>
             
                 <li data-name="R.remove"><a href="R.html#remove">remove</a></li>
             
@@ -289,6 +315,8 @@
                 <li data-name="R.reverse"><a href="R.html#reverse">reverse</a></li>
             
                 <li data-name="R.rPartial"><a href="R.html#rPartial">rPartial</a></li>
+            
+                <li data-name="R.size"><a href="R.html#size">size</a></li>
             
                 <li data-name="R.skip"><a href="R.html#skip">skip</a></li>
             
@@ -319,6 +347,8 @@
                 <li data-name="R.subtractN"><a href="R.html#subtractN">subtractN</a></li>
             
                 <li data-name="R.sum"><a href="R.html#sum">sum</a></li>
+            
+                <li data-name="R.tail"><a href="R.html#tail">tail</a></li>
             
                 <li data-name="R.take"><a href="R.html#take">take</a></li>
             
@@ -549,6 +579,7 @@
      * @func
      * @memberOf R
      * @category Function
+     * @sig (* -> a) -> Number -> (* -> a)
      * @param {Function} fn The function to curry.
      * @param {number} [fnArity=fn.length] An optional arity for the returned function.
      * @return {Function} A new, curried function.
@@ -729,6 +760,7 @@
      * @func
      * @memberOf R
      * @category Function
+     * @sig Number -> (* -> a) -> (* -> a)
      * @param {number} n The desired arity of the new function.
      * @param {Function} fn The function to wrap.
      * @return {Function} A new function wrapping `fn`. The new function is guaranteed to be of
@@ -801,6 +833,7 @@
      * @func
      * @memberOf R
      * @category Function
+     * @sig (* -> b) -> (a -> b)
      * @param {Function} fn The function to wrap.
      * @return {Function} A new function wrapping `fn`. The new function is guaranteed to be of
      *         arity 1.
@@ -829,6 +862,7 @@
      * @func
      * @memberOf R
      * @category Function
+     * @sig (* -> c) -> (a, b -> c)
      * @param {Function} fn The function to wrap.
      * @return {Function} A new function wrapping `fn`. The new function is guaranteed to be of
      *         arity 2.
@@ -858,6 +892,7 @@
      * @func
      * @memberOf R
      * @category Function
+     * @sig (Number, (*)) -> (*)
      * @param {number} n The desired arity of the returned function.
      * @param {Function} fn The function to wrap.
      * @return {Function} A new function wrapping `fn`. The new function is
@@ -933,6 +968,7 @@
      * @func
      * @memberOf R
      * @category Function
+     * @sig (String, Object, Number) -> (*)
      * @param {string} name The name of the method to wrap.
      * @param {Object} obj The object to search for the `name` method.
      * @param [len] The desired arity of the wrapped method.
@@ -969,7 +1005,7 @@
      * new function. For example:
      *
      * ```javascript
-     *   var useWithExample = invoke(someFn, transformerFn1, transformerFn2);
+     *   var useWithExample = R.useWith(someFn, transformerFn1, transformerFn2);
      *
      *   // This invocation:
      *   useWithExample('x', 'y');
@@ -985,6 +1021,7 @@
      * @func
      * @memberOf R
      * @category Function
+     * @sig ((*), (*)...) -> (*)
      * @param {Function} fn The function to wrap.
      * @param {...Function} transformers A variable number of transformer functions
      * @return {Function} The wrapped function.
@@ -1043,6 +1080,7 @@
      * @func
      * @memberOf R
      * @category List
+     * @sig (a -> ) -> [a] -> [a]
      * @param {Function} fn The function to invoke. Receives one argument, `value`.
      * @param {Array} list The list to iterate over.
      * @return {Array} The original list.
@@ -1082,10 +1120,13 @@
      * @func
      * @memberOf R
      * @category List
+     * @sig (a, i, [a] -> ) -> [a] -> [a]
+     * @param {Function} fn The function to invoke. Receives one argument, `value`.
      * @param {Function} fn The function to invoke. Receives three arguments:
      *        (`value`, `index`, `list`).
      * @param {Array} list The list to iterate over.
      * @return {Array} The original list.
+     * @alias forEach.idx
      * @example
      *
      *      // Note that having access to the original `list` allows for
@@ -1110,6 +1151,7 @@
      * @func
      * @memberOf R
      * @category Array
+     * @sig [a] -> [a]
      * @param {Array} list The list to clone.
      * @return {Array} A new copy of the original list.
      * @example
@@ -1138,6 +1180,7 @@
      * @func
      * @memberOf R
      * @category Array
+     * @sig [a] -> Boolean
      * @param {Array} arr The array to consider.
      * @return {boolean} `true` if the `arr` argument has a length of 0 or
      *         if `arr` is a falsy value (e.g. undefined).
@@ -1161,18 +1204,24 @@
      * @func
      * @memberOf R
      * @category Array
+     * @sig a -> [a] -> [a]
      * @param {*} el The item to add to the head of the output list.
      * @param {Array} arr The array to add to the tail of the output list.
      * @return {Array} A new array.
-     * @alias cons
      * @example
      *
      *      ramda.prepend('fee', ['fi', 'fo', 'fum']); //=> ['fee', 'fi', 'fo', 'fum']
      */
-    function prepend(el, arr) {
+    R.prepend = function prepend(el, arr) {
         return concat([el], arr);
-    }
-    R.prepend = prepend;
+    };
+
+    /**
+     * @func
+     * @memberOf R
+     * @category Array
+     * @see R.prepend
+     */
     R.cons = R.prepend;
 
 
@@ -1183,18 +1232,24 @@
      * @func
      * @memberOf R
      * @category Array
+     * @sig [a] -> a
      * @param {Array} [arr=[]] The array to consider.
      * @return {*} The first element of the list, or `undefined` if the list is empty.
-     * @alias car
      * @example
      *
      *      ramda.head(['fi', 'fo', 'fum']); //=> 'fi'
      */
-    var head = R.head = function _car(arr) {
+    var head = R.head = function head(arr) {
         arr = arr || [];
         return arr[0];
     };
 
+    /**
+     * @func
+     * @memberOf R
+     * @category Array
+     * @see R.head
+     */
     R.car = R.head;
 
 
@@ -1204,6 +1259,7 @@
      * @func
      * @memberOf R
      * @category Array
+     * @sig [a] -> a
      * @param {Array} [arr=[]] The array to consider.
      * @return {*} The last element of the list, or `undefined` if the list is empty.
      * @example
@@ -1223,10 +1279,10 @@
      * @func
      * @memberOf R
      * @category Array
+     * @sig [a] -> [a]
      * @param {Array} [arr=[]] The array to consider.
      * @return {Array} A new array containing all but the first element of the input list, or an
      *         empty list if the input list is a falsy value (e.g. `undefined`).
-     * @alias cdr
      * @example
      *
      *      ramda.tail(['fi', 'fo', 'fum']); //=> ['fo', 'fum']
@@ -1236,6 +1292,12 @@
         return (arr.length > 1) ? _slice(arr, 1) : [];
     });
 
+    /**
+     * @func
+     * @memberOf R
+     * @category Array
+     * @see R.tail
+     */
     R.cdr = R.tail;
 
 
@@ -1246,6 +1308,7 @@
      * @func
      * @memberOf R
      * @category Array
+     * @sig a -> Boolean
      * @param {*} x The element to consider.
      * @return {boolean} `true` if `x` is an atom, and `false` otherwise.
      * @example
@@ -1271,11 +1334,11 @@
      * @func
      * @memberOf R
      * @category Array
+     * @sig a -> [a] -> [a]
      * @param {*} el The element to add to the end of the new list.
      * @param {Array} list The list whose contents will be added to the beginning of the output
      *        list.
      * @return {Array} A new list containing the contents of the old list followed by `el`.
-     * @alias push
      * @example
      *
      *      ramda.append('tests', ['write', 'more']); //=> ['write', 'more', 'tests']
@@ -1286,6 +1349,12 @@
         return concat(list, [el]);
     };
 
+    /**
+     * @func
+     * @memberOf R
+     * @category Array
+     * @see R.append
+     */
     R.push = R.append;
 
 
@@ -1296,6 +1365,7 @@
      * @func
      * @memberOf R
      * @category Array
+     * @sig [a] -> [a] -> [a]
      * @param {Array} list1 The first list to merge.
      * @param {Array} list2 The second set to merge.
      * @return {Array} A new array consisting of the contents of `list1` followed by the
@@ -1328,9 +1398,9 @@
      * @func
      * @memberOf R
      * @category Core
+     * @sig a -> a
      * @param {*} x The value to return.
      * @return {*} The input value, `x`.
-     * @alias I
      * @example
      *
      *      ramda.identity(1); //=> 1
@@ -1341,6 +1411,13 @@
     var identity = R.identity = function _I(x) {
         return x;
     };
+
+    /**
+     * @func
+     * @memberOf R
+     * @category Core
+     * @see R.identity
+     */
     R.I = R.identity;
 
 
@@ -1354,6 +1431,7 @@
      * @func
      * @memberOf R
      * @category List
+     * @sig (i -> a) -> i -> [a]
      * @param {Function} fn The function to invoke. Passed one argument, the current value of `n`.
      * @param {number} n A value between `0` and `n - 1`. Increments after each function call.
      * @return {Array} An array containing the return values of all calls to `fn`.
@@ -1377,6 +1455,7 @@
      * @func
      * @memberOf R
      * @category Array
+     * @sig a -> n -> [a]
      * @param {*} value The value to repeat.
      * @param {number} n The desired size of the output list.
      * @return {Array} A new array containing `n` `value`s.
@@ -1407,6 +1486,7 @@
      *
      * @private
      * @category Function
+     * @sig ((a... -> b), a) -> (a... -> b)
      * @param {Function} f The function to partially apply `a` onto.
      * @param {*} a The argument to partially apply onto `f`.
      * @return {Function} A new function.
@@ -1472,6 +1552,7 @@
      * @func
      * @memberOf R
      * @category Function
+     * @sig ((y -> z), (x -> y), ..., (b -> c), (a... -> b)) -> (a... -> z)
      * @param {...Function} functions A variable number of functions.
      * @return {Function} A new function which represents the result of calling each of the
      *         input `functions`, passing the result of each function call to the next, from
@@ -1511,6 +1592,7 @@
      * @func
      * @memberOf R
      * @category Function
+     * @sig ((a... -> b), (b -> c), ..., (x -> y), (y -> z)) -> (a... -> z)
      * @param {...Function} functions A variable number of functions.
      * @return {Function} A new function which represents the result of calling each of the
      *         input `functions`, passing the result of each function call to the next, from
@@ -1536,6 +1618,7 @@
      * @func
      * @memberOf R
      * @category Function
+     * @sig ((a, b) -> c) -> ((b, a) -> c)
      * @param {Function} fn The function to invoke with its first two parameters reversed.
      * @return {*} The result of invoking `fn` with its first two parameters' order reversed.
      * @example
@@ -1568,6 +1651,7 @@
      * @func
      * @memberOf R
      * @category Function
+     * @sig ((* -> *), ...) -> (* -> *)
      * @param {Function} fn The function to invoke.
      * @param {...*} [args] Arguments to prepend to `fn` when the returned function is invoked.
      * @return {Function} A new function wrapping `fn`. When invoked, it will call `fn`
@@ -1604,6 +1688,7 @@
      * @func
      * @memberOf R
      * @category Function
+     * @sig ((* -> *), ...) -> (* -> *)
      * @param {Function} fn The function to invoke.
      * @param {...*} [args] Arguments to append to `fn` when the returned function is invoked.
      * @return {Function} A new function wrapping `fn`. When invoked, it will call `fn` with
@@ -1637,6 +1722,7 @@
      * @func
      * @memberOf R
      * @category Function
+     * @sig (a... -> b) -> (a... -> b)
      * @param {Function} fn The function to be wrapped by `memoize`.
      * @return {Function}  Returns a memoized version of `fn`.
      * @example
@@ -1676,6 +1762,7 @@
      * @func
      * @memberOf R
      * @category Function
+     * @sig (a... -> b) -> (a... -> b)
      * @param {Function} fn The function to wrap in a call-only-once wrapper.
      * @return {Function} The wrapped function.
      * @example
@@ -1869,7 +1956,6 @@
      * @param {*} acc The accumulator value.
      * @param {Array} list The list to iterate over.
      * @return {*} The final, accumulated value.
-     * @alias foldl
      * @example
      *
      *      var numbers = [1, 2, 3];
@@ -1879,7 +1965,7 @@
      *
      *      reduce(numbers, add, 10); //=> 16
      */
-    var foldl = R.reduce =  curry3(checkForMethod('reduce', function _reduce(fn, acc, list) {
+    R.reduce = curry3(checkForMethod('reduce', function _reduce(fn, acc, list) {
         var idx = -1, len = list.length;
         while (++idx &lt; len) {
             acc = fn(acc, list[idx]);
@@ -1887,7 +1973,13 @@
         return acc;
     }));
 
-    R.foldl = R.reduce;
+    /**
+     * @func
+     * @memberOf R
+     * @category List
+     * @see R.reduce
+     */
+    var foldl = R.foldl = R.reduce;
 
 
     /**
@@ -1908,6 +2000,7 @@
      * @param {*} acc The accumulator value.
      * @param {Array} list The list to iterate over.
      * @return {*} The final, accumulated value.
+     * @alias reduce.idx
      * @example
      *
      *      var letters = ['a', 'b', 'c'];
@@ -1947,7 +2040,6 @@
      * @param {*} acc The accumulator value.
      * @param {Array} list The list to iterate over.
      * @return {*} The final, accumulated value.
-     * @alias foldr
      * @example
      *
      *      var pairs = [ ['a', 1], ['b', 2], ['c', 3] ];
@@ -1957,7 +2049,7 @@
      *
      *      reduceRight(numbers, flattenPairs, []); //=> [ 'c', 3, 'b', 2, 'a', 1 ]
      */
-    var foldr = R.reduceRight = curry3(checkForMethod('reduceRight', function _reduceRight(fn, acc, list) {
+    R.reduceRight = curry3(checkForMethod('reduceRight', function _reduceRight(fn, acc, list) {
         var idx = list.length;
         while (idx--) {
             acc = fn(acc, list[idx]);
@@ -1965,7 +2057,13 @@
         return acc;
     }));
 
-    R.foldr = R.reduceRight;
+    /**
+     * @func
+     * @memberOf R
+     * @category List
+     * @see R.reduceRight
+     */
+    var foldr = R.foldr = R.reduceRight;
 
 
     /**
@@ -1987,6 +2085,7 @@
      * @param {*} acc The accumulator value.
      * @param {Array} list The list to iterate over.
      * @return {*} The final, accumulated value.
+     * @alias reduceRight.idx
      * @example
      *
      *      var letters = ['a', 'b', 'c'];
@@ -2085,6 +2184,7 @@
      * @param {Function} fn The function to be called on every element of the input `list`.
      * @param {Array} list The list to be iterated over.
      * @return {Array} The new list.
+     * @alias map.idx
      * @example
      *
      *      var squareEnds = function(elt, idx, list) {
@@ -2149,6 +2249,7 @@
      * @param {Object} obj The object to iterate over.
      * @return {Object} A new object with the same keys as `obj` and values that are the result
      *         of running each property through `fn`.
+     * @alias mapObj.idx
      * @example
      *
      *      var values = { x: 1, y: 2, z: 3 };
@@ -2259,7 +2360,6 @@
      * @category List
      * @param {Array} arr The array to inspect.
      * @return {number} The size of the array.
-     * @alias length
      * @example
      *
      *      ramda.size([]); //=> 0
@@ -2268,6 +2368,13 @@
     R.size = function _size(arr) {
         return arr.length;
     };
+
+    /**
+     * @func
+     * @memberOf R
+     * @category List
+     * @see R.size
+     */
     R.length = R.size;
 
 
@@ -2315,6 +2422,7 @@
      * @param {Function} fn The function called per iteration.
      * @param {Array} list The collection to iterate over.
      * @return {Array} The new filtered array.
+     * @alias filter.idx
      * @example
      *
      *      var lastTwo = function(val, idx, list) {
@@ -2367,6 +2475,7 @@
      * @param {Function} fn The function called per iteration.
      * @param {Array} list The collection to iterate over.
      * @return {Array} The new filtered array.
+     * @alias reject.idx
      * @example
      *
      *      var lastTwo = function(val, idx, list) {
@@ -2596,8 +2705,8 @@
      *      var lessThan2 = flip(lt)(2);
      *      var lessThan3 = flip(lt)(3);
      *      var xs = range(1, 3); //= [1, 2]
-     *      all(lessThan2)(xs); //= false
-     *      all(lessThan3)(xs); //= true
+     *      every(lessThan2)(xs); //= false
+     *      every(lessThan3)(xs); //= true
      */
     function every(fn, list) {
         var i = -1;
@@ -2627,8 +2736,8 @@
      *      var lessThan0 = flip(lt)(0);
      *      var lessThan2 = flip(lt)(2);
      *      var xs = range(1, 3); //= [1, 2]
-     *      any(lessThan0)(xs); //= false
-     *      any(lessThan2)(xs); //= true
+     *      some(lessThan0)(xs); //= false
+     *      some(lessThan2)(xs); //= true
      */
     function some(fn, list) {
         var i = -1;
@@ -3110,7 +3219,7 @@
      * Creates a new list out of the two supplied by applying the function
      * to each possible pair in the lists.
      *
-     * @see xprod
+     * @see R.xprod
      * @func
      * @memberOf R
      * @category List
@@ -3507,7 +3616,6 @@
      * @param {String} p The property name
      * @param {Object} obj The object to query
      * @return {*} The value at obj.p
-     * @alias get
      * @example
      *
      *      prop('x', {x: 100}) // => 100
@@ -3525,6 +3633,12 @@
         return obj[p];
     };
 
+    /**
+     * @func
+     * @memberOf R
+     * @category Object
+     * @see R.prop
+     */
     R.get = R.prop;
 
 
@@ -3534,7 +3648,7 @@
      *
      * @func
      * @memberOf R
-     * @see prop
+     * @see R.prop
      * @category Object
      * @param {Object} obj The object to query
      * @param {String} prop The property name
@@ -3895,7 +4009,7 @@
      * @param {Object} obj The object to copy from
      * @return {Object} A new object with only properties that satisfy `pred`
      *         on it.
-     * @see pick
+     * @see R.pick
      * @example
      *
      *      function isUpperCase(x) { return x.toUpperCase() === x; }
@@ -3908,7 +4022,7 @@
      * Internal implementation of `pickAll`
      *
      * @private
-     * @see pickAll
+     * @see R.pickAll
      */
     // TODO: document, even for internals...
     var pickAll = function _pickAll(names, obj) {
@@ -3929,7 +4043,7 @@
      * @param {Array} names an array of String propery names to copy onto a new object
      * @param {Object} obj The object to copy from
      * @return {Object} A new object with only properties from `names` on it.
-     * @see pick
+     * @see R.pick
      * @example
      *
      *      pick(['a', 'd'], {a: 1, b: 2, c: 3, d: 4}) // => {a: 1, d: 4}
@@ -4011,7 +4125,7 @@
      * internal helper for `where`
      *
      * @private
-     * @see where
+     * @see R.where
      */
     function satisfiesSpec(spec, parsedSpec, testObj) {
         if (spec === testObj) { return true; }
@@ -4148,7 +4262,7 @@
      * @func
      * @memberOf R
      * @category function
-     * @see always
+     * @see R.always
      * @return {Number} 0. Always zero.
      * @example
      *
@@ -4163,7 +4277,7 @@
      * @func
      * @memberOf R
      * @category function
-     * @see always
+     * @see R.always
      * @return {Boolean} false
      * @example
      *
@@ -4178,7 +4292,7 @@
      * @func
      * @memberOf R
      * @category function
-     * @see always
+     * @see R.always
      * @return {Boolean} true
      * @example
      *
@@ -4274,7 +4388,8 @@
      * Create a predicate wrapper which will call a pick function (all/any) for each predicate
      *
      * @private
-     * @see all, any
+     * @see R.every
+     * @see R.some
      */
     // TODO: document, even for internals...
     var predicateWrap = function _predicateWrap(predPicker) {
@@ -4394,7 +4509,7 @@
      * @param {number} a The first value.
      * @param {number} b The second value.
      * @return {number} The result of `a - b`.
-     * @see subtractN
+     * @see R.subtractN
      * @example
      *
      *      var complementaryAngle = subtract(90);
@@ -4443,7 +4558,7 @@
      * @param {number} a The first value.
      * @param {number} b The second value.
      * @return {number} The result of `a / b`.
-     * @see divideBy
+     * @see R.divideBy
      * @example
      *
      *      var reciprocal = divide(1);
@@ -4465,7 +4580,7 @@
      * @param {number} a The second value.
      * @param {number} b The first value.
      * @return {number} The result of `b / a`.
-     * @see divide
+     * @see R.divide
      * @example
      *
      *      var half = divideBy(2);
@@ -4486,7 +4601,8 @@
      * @param {number} a The value to the divide.
      * @param {number} b The pseudo-modulus
      * @return {number} The result of `b % a`.
-     * @see moduloBy, mathMod
+     * @see R.moduloBy
+     * @see R.mathMod
      * @example
      *
      *      modulo(17, 3) // => 2
@@ -4523,7 +4639,7 @@
      * @param {number} m The dividend.
      * @param {number} p the modulus.
      * @return {number} The result of `b mod a`.
-     * @see moduloBy
+     * @see R.moduloBy
      * @example
      *
      *      mathMod(-17, 5)  // 3
@@ -4550,7 +4666,7 @@
      * @param {number} m The dividend.
      * @param {number} p the modulus.
      * @return {number} The result of `b mod a`.
-     * @see modulo
+     * @see R.modulo
      * @example
      *
      *      var isOdd = moduloBy(2);
@@ -4670,7 +4786,7 @@
      * @func
      * @memberOf R
      * @category math
-     * @see maxWith
+     * @see R.maxWith
      * @param {Array} list A list of numbers
      * @return {Number} The greatest number in the list
      * @example
@@ -4691,7 +4807,7 @@
      * @param {Function} keyFn A comparator function for elements in the list
      * @param {Array} list A list of comparable elements
      * @return {*} The greatest element in the list. `undefined` if the list is empty.
-     * @see max
+     * @see R.max
      * @example
      *
      *      function cmp(obj) { return obj.x; }
@@ -4722,7 +4838,7 @@
      * @category math
      * @param {Function} keyFn A comparator function for elements in the list
      * @param {Array} list A list of comparable elements
-     * @see min
+     * @see R.min
      * @return {*} The greatest element in the list. `undefined` if the list is empty.
      * @example
      *
@@ -4755,7 +4871,7 @@
      * @category math
      * @param {Array} list A list of numbers
      * @return {Number} The greatest number in the list
-     * @see minWith
+     * @see R.minWith
      * @example
      *
      *      min([7, 3, 9, 2, 4, 9, 3]) // => 2
@@ -4783,7 +4899,7 @@
      * @param {Number} indexB An integer between 0 and the length of the string.
      * @param {String} The string to extract from
      * @return {String} the extracted substring
-     * @see invoker
+     * @see R.invoker
      * @example
      *
      *      substring(2, 5, 'abcdefghijklm'); //=> 'cde'
@@ -4800,7 +4916,7 @@
      * @param {Number} indexA An integer between 0 and the length of the string.
      * @param {String} The string to extract from
      * @return {String} the extracted substring
-     * @see invoker
+     * @see R.invoker
      * @example
      *
      *      substringFrom(8, 'abcdefghijklm'); //=> 'ijklm'
@@ -4817,7 +4933,7 @@
      * @param {Number} indexA An integer between 0 and the length of the string.
      * @param {String} The string to extract from
      * @return {String} the extracted substring
-     * @see invoker
+     * @see R.invoker
      * @example
      *
      *      substringTo(8, 'abcdefghijklm'); //=> 'abcdefgh'
@@ -4834,7 +4950,7 @@
      * @param {Number} index An integer between 0 and the length of the string.
      * @param {String} str The string to extract a char from
      * @return {String} the character at `index` of `str`
-     * @see invoker
+     * @see R.invoker
      * @example
      *
      *      charAt(8, 'abcdefghijklm'); //=> 'i'
@@ -4851,7 +4967,7 @@
      * @param {Number} index An integer between 0 and the length of the string.
      * @param {String} str The string to extract a charCode from
      * @return {Number} the code of the character at `index` of `str`
-     * @see invoker
+     * @see R.invoker
      * @example
      *
      *      charCodeAt(8, 'abcdefghijklm'); //=> 105
@@ -4869,7 +4985,7 @@
      * @param {RegExp} rx A regular expression.
      * @param {String} str The string to match against
      * @return {Array} The list of matches, or null if no matches found
-     * @see invoker
+     * @see R.invoker
      * @example
      *
      *      match(/([a-z]a)/g, 'bananas'); //=> ['ba', 'na', 'na']
@@ -4886,7 +5002,7 @@
      * @param {String} c A string to find.
      * @param {String} str The string to search in
      * @return {Number} The first index of `c` or -1 if not found
-     * @see invoker
+     * @see R.invoker
      * @example
      *
      *      strIndexOf('c', 'abcdefg) //=> 2
@@ -4904,7 +5020,7 @@
      * @param {String} c A string to find.
      * @param {String} str The string to search in
      * @return {Number} The last index of `c` or -1 if not found
-     * @see invoker
+     * @see R.invoker
      * @example
      *
      *      strLastIndexOf('a', 'banana split') //=> 5
@@ -5109,7 +5225,7 @@
      * @param {Array} list2 The second list.
      * @return {Array} The first and second lists concatenated, with
      *         duplicates removed.
-     * @see union
+     * @see R.union
      * @example
      *
      *      function cmp(x, y) { return x.a === y.a; }
@@ -5131,7 +5247,7 @@
      * @param {Array} list1 The first list.
      * @param {Array} list2 The second list.
      * @return {Array} The elements in `list1` that are not in `list2`
-     * @see differenceWith
+     * @see R.differenceWith
      * @example
      *
      *      difference([1,2,3,4], [7,6,5,4,3]); //= [1,2]
@@ -5153,7 +5269,7 @@
      * @param {Function} pred
      * @param {Array} list1 The first list.
      * @param {Array} list2 The second list.
-     * @see difference
+     * @see R.difference
      * @return {Array} The first and second lists concatenated, with
      *                 duplicates removed.
      * @example
@@ -5177,7 +5293,7 @@
      * @category relation
      * @param {Array} list1 The first list.
      * @param {Array} list2 The second list.
-     * @see intersectionWith
+     * @see R.intersectionWith
      * @return {Array} The list of elements found in both `list1` and `list2`
      * @example
      *
@@ -5202,7 +5318,7 @@
      *        Signatrue: a -> a -> Boolean
      * @param {Array} list1 One list of items to compare
      * @param {Array} list2 A second list of items to compare
-     * @see intersection
+     * @see R.intersection
      * @return {Array} A new list containing those elements common to both lists.
      * @example
      *
@@ -5404,7 +5520,7 @@
         
 
         <footer>
-            Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Sat Aug 30 2014 22:02:54 GMT+0300 (EEST)
+            Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.2.2</a> on Sun Aug 31 2014 07:42:31 GMT-0400 (EDT)
         </footer>
     </div>
 </div>
