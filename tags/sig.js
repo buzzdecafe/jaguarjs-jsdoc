@@ -11,7 +11,8 @@ exports.defineTags = function(dict) {
     dict.defineTag('sig', {    
         mustHaveValue: true,
         onTagged: function(doclet, tag) {
-          doclet.sig = tag.value;
+          doclet.sigs = doclet.sigs || [];
+          doclet.sigs.push(tag.value);
         }
     });
 

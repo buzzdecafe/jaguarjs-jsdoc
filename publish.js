@@ -74,8 +74,11 @@ function addSignatureReturns(f) {
 }
 
 function addTypeSignature(f) {
-    if (!f.sig) return;
-    f.typeSignature = f.name + ' :: ' + f.sig;
+    if (!f.sigs || f.sigs.length === 0) { return; }
+    f.typeSignature = f.sigs.reduce(function(ts, sig) {
+        ts += f.name + ' :: ' + sig + '\n';
+        return ts;
+    }, '');
 }
 
 function addSignatureTypes(f) {
